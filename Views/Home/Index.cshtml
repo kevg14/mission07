@@ -1,5 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
 }
+
+@model BooksViewModel
+
+<h1>Books</h1>
+
+@foreach (Book p in Model.Books)
+{
+    <h3>@p.Title</h3>
+
+        <ul>
+            <li>Book Author: @p.Author</li>
+            <li>Publisher: @p.Publisher</li>
+            <li>ISBN: @p.Isbn</li>
+            <li>Classification: @p.Classification</li>
+            <li>Category: @p.Category</li>
+            <li>Page Count: @p.PageCount</li>
+            <li>Price: @p.Price</li>
+        </ul>
+        <br />
+
+}
+
+<a asp-action="Index" asp-route-pageNum="1">1</a>
+<a asp-action="Index" asp-route-pageNum="2">2</a>
+<a asp-action="Index" asp-route-pageNum="3">3</a>
