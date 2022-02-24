@@ -24,35 +24,25 @@ namespace Mission07.Controllers
         // GET: /<controller>/
         public IActionResult Index(int pageNum = 1)
         {
-            int pageSize = 5;
+            int pageSize = 10;
 
-            var newisntance = new BooksViewModel
+            var newinstance = new BooksViewModel
             {
-               Books = repo.Books
+                Books = repo.Books
                 .OrderBy(p => p.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
-               pageInfo = new PageInfo
-               {
-                   TotalNumBooks = repo.Books.Count(),
-                   BooksPerPage = pageSize,
-                   CurrentPage = pageNum
-               }
-                  
+                pageInfo = new PageInfo
+                {
+                    TotalNumBooks = repo.Books.Count(),
+                    BooksPerPage = pageSize,
+                    CurrentPage = pageNum
+                }
 
-
-            }
+            };
+            return View(newinstance);
         }
-
-            var inst = repo.Books.ToList()
-                .OrderBy(p => p.Title)
-                .Skip((pageNum - 1) * pageSize)
-                .Take(pageSize);
-
-            return View(inst);
-        }
-
 
     }
 }

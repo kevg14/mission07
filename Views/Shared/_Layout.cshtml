@@ -4,8 +4,14 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+
+    @*linking in my bootstrap*@
+    <link href="/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+
+    @*my implementation of boot strap*@
+    <nav class="navbar navbar-dark bg-dark"><span class="navbar-brand">Book List</span></nav>
     <div>
         @RenderBody()
     </div>

@@ -22,9 +22,11 @@
     <Folder Include="Views\Shared\" />
     <Folder Include="Controllers\Infrastructure\" />
     <Folder Include="Models\ViewModels\" />
+    <Folder Include="wwwroot\lib\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
+    <Content Remove="wwwroot\lib\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.22">
