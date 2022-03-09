@@ -22,20 +22,24 @@ namespace Mission07.Controllers
 
 
         // GET: /<controller>/
-        public IActionResult Index(int pageNum = 1)
+        public IActionResult Index(string projectType, int pageNum = 1)
         {
             int pageSize = 10;
 
             var newinstance = new BooksViewModel
             {
                 Books = repo.Books
+                .Where(p => p.Category == projectType || projectType == null)
                 .OrderBy(p => p.Title)
                 .Skip((pageNum - 1) * pageSize)
                 .Take(pageSize),
 
                 pageInfo = new PageInfo
                 {
-                    TotalNumBooks = repo.Books.Count(),
+                    TotalNumBooks =
+                        (projectType == null
+                        ? repo.Books.Count()
+                        : repo.Books.Where(x => x.Category == projectType).Count()),
                     BooksPerPage = pageSize,
                     CurrentPage = pageNum
                 }

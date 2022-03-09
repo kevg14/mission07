@@ -3,23 +3,13 @@
 
 @model BooksViewModel
 
-<h1>Books</h1>
 
 @foreach (Book p in Model.Books)
 {
-    <h3>@p.Title</h3>
-
-        <ul>
-            <li>Book Author: @p.Author</li>
-            <li>Publisher: @p.Publisher</li>
-            <li>ISBN: @p.Isbn</li>
-            <li>Classification: @p.Classification</li>
-            <li>Category: @p.Category</li>
-            <li>Page Count: @p.PageCount</li>
-            <li>Price: @p.Price</li>
-        </ul>
-        <br />
+    <partial name="ProjectSummary" model="p"/>
 
 }
 
-<div page-non="@Model.pageInfo" page-action=""></div>
+<div page-non="@Model.pageInfo" page-action="Index" page-class="btn"
+     page-class-normal="btn-outline-dark" page-class-selected="btn-primary" page-classes-enabled="true"
+     class="btn-group pull-right m-1"></div>
