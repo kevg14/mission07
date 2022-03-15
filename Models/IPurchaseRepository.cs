@@ -8,12 +8,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Mission07.Models
 {
-    public class IPurchaseRepository : Controller
+    public interface IPurchaseRepository
     {
-        // GET: /<controller>/
-        public IActionResult Index()
-        {
-            return View();
-        }
+        IQueryable<Purchase> Purchases { get; }
+
+        void SavePurchase(Purchase purchase);
     }
 }

@@ -16,6 +16,8 @@
     <None Remove="Views\Shared\Components\Types\" />
     <None Remove="Pages\" />
     <None Remove="Infrastructure\" />
+    <None Remove="Views\Purchase\" />
+    <None Remove="Views\Shared\Components\CartSummary\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -31,6 +33,8 @@
     <Folder Include="Views\Shared\Components\Types\" />
     <Folder Include="Pages\" />
     <Folder Include="Infrastructure\" />
+    <Folder Include="Views\Purchase\" />
+    <Folder Include="Views\Shared\Components\CartSummary\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />

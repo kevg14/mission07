@@ -13,5 +13,7 @@ namespace Mission07.Models.ViewModels
         public IQueryable<Book> Books { get; set; }
         public PageInfo pageInfo { get; set; }
 
+        //possible solution to problem
+        //public string CurrentCategory { get; set; }
     }
 }

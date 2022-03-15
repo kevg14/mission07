@@ -20,6 +20,7 @@ namespace Mission07.Models
         }
 
         public virtual DbSet<Book> Books { get; set; }
+        public virtual DbSet<Purchase> Purchases { get; set; }
 
 
     }
