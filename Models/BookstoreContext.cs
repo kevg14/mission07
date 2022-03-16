@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Mission07.Models
 {
-    public partial class BookstoreContext : DbContext
+    public class BookstoreContext : DbContext
     {
         public BookstoreContext()
         {

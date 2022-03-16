@@ -11,7 +11,7 @@ using Mission07.Models.ViewModels;
 
 namespace Mission07.Models
 {
-    public class Purchase : Controller
+    public class Purchase
     {
         [Key]
         [BindNever]
