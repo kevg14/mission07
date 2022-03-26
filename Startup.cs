@@ -21,9 +21,12 @@ namespace Mission07
 
         public IConfiguration Configuration { get; set; }
 
-        public Startup (IConfiguration temp)
+        private IWebHostEnvironment _env;
+
+        public Startup (IConfiguration temp, IWebHostEnvironment env)
         {
             Configuration = temp;
+            _env = env;
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -50,7 +53,23 @@ namespace Mission07
             //personal note:another possible error here
             services.AddScoped<Basket>(x => SessionBasket.GetBasket(x));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-        }
+
+            //for the use of Blazor and Admin
+            services.AddServerSideBlazor();
+
+            //testing for error Mission 10
+            services.AddServerSideBlazor().AddCircuitOptions(option => { option.DetailedErrors = true; });
+
+            services.AddServerSideBlazor().AddCircuitOptions(option =>
+            {
+                if (_env.IsDevelopment()) //Only add details when debugging.
+                {
+                    option.DetailedErrors = true;
+                }
+            });
+
+
+            }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -91,9 +110,17 @@ namespace Mission07
                     "{projectType}",
                     new { Controller = "Home", action = "Index", pageNum = 1 });
 
-                endpoints.MapDefaultControllerRoute();
+                //endpoints.MapDefaultControllerRoute();
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
 
                 endpoints.MapRazorPages();
+
+                //for blazor use
+                endpoints.MapBlazorHub();
+                endpoints.MapFallbackToPage("/admin/{*catchall}", "/Admin/Index");
 
             });
 

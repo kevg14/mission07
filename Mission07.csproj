@@ -19,6 +19,7 @@
     <None Remove="Views\Purchase\" />
     <None Remove="Views\Shared\Components\CartSummary\" />
     <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\" />
@@ -36,6 +37,7 @@
     <Folder Include="Infrastructure\" />
     <Folder Include="Views\Purchase\" />
     <Folder Include="Views\Shared\Components\CartSummary\" />
+    <Folder Include="Pages\Admin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\" />
